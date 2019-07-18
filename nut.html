@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery Hide Dropdown on Click Outside</title>
+<style type="text/css">
+    ul{
+        padding: 0;
+        list-style: none;
+        background: #f2f2f2;
+    }
+    ul li{
+        display: inline-block;
+        position: relative;
+        line-height: 21px;
+        text-align: left;
+    }
+    ul li a{
+        display: block;
+        padding: 8px 25px;
+        color: #333;
+        text-decoration: none;
+    }
+    ul li a:hover{
+        color: #fff;
+        background: #939393;
+    }
+    ul li ul.dropdown-menu{
+        min-width: 100%; /* Set width of the dropdown */
+        background: #f2f2f2;
+        display: none;
+        position: absolute;
+        z-index: 999;
+        left: 0;
+    }
+    ul li ul.dropdown-menu li{
+        display: block;
+    }
+    p{
+        font-family:cursive;
+    display: block;
+        color: blue;
+        font-size: 20px;
+        font-display: optional;
+        
+    }
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        // Show hide popover
+        $(".dropdown").click(function(){
+            $(this).find(".dropdown-menu").slideToggle("fast");
+        });
+    });
+    $(document).on("click", function(event){
+        var $trigger = $(".dropdown");
+        if($trigger !== event.target && !$trigger.has(event.target).length){
+            $(".dropdown-menu").slideUp("fast");
+        }            
+    });
+</script>
+</head>
+<body>
+    <ul>
+        
+        <a href="index.html">Home</a>
+        <li><a href="#">About</a></li>
+        <li class="dropdown">
+            <a href="#">Diet Information &#9662;</a>
+            <ul class="dropdown-menu">
+                         <li><a href="infant.html">Infants</a></li>
+    <li><a href="dia.html">Diabetibic patients</a></li>
+    <li><a href="can.html">cancer</a></li>
+    
+    <li><a href="car.html">Cardiological disorders</a></li>
+    <li><a href="wl.html">weight loss</a></li>
+   
+            </ul>
+        </li>
+        
+    </ul>
+    <img src="images/imag1.jpg" alt="image">
+    <p>As molecular biology, biochemistry, and genetics advance, nutrition has become more focused on metabolism and metabolic pathways - biochemical steps through which substances inside us are transformed from one form to another.
+
+Nutrition also focuses on how diseases, conditions, and problems can be prevented or reduced with a healthy diet.
+
+Similarly, nutrition involves identifying how certain diseases and conditions may be caused by dietary factors, such as poor diet (malnutrition), food allergies, and food intolerances.</p>
+</body>
+</html>
